@@ -1,0 +1,17 @@
+.container {
+  width: 100vw;
+  height: 100%;
+  height: var(--vh);
+  position: relative;
+  transform-origin: left;
+  transform-style: preserve-3d;
+  transition: all 300ms ease-in-out;
+}
+.childWrap {
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 300ms ease-in-out;
+  transform-origin: left;
+  position: relative;
+  z-index: 98;
+}
