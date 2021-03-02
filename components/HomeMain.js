@@ -3,13 +3,13 @@ import styleHome from "../styles/HomeMain.module.css"
 import {useRouter} from "next/router";
 
 //component 
-import Background from "../components/Background";
+
 
 export default function HomeMain() {
     const Router = useRouter();
     return (
         <main className={[styleHome.container].join(" ")} > 
-            <Background />
+            
             <div className={styleHome.content}>
                 <div className={styleHome.body}>
                     <h1>Wisdom</h1>

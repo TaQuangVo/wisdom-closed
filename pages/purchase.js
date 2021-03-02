@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import stylePurchase from "../styles/StylePurchase.module.css";
+import {motion} from "framer-motion"
 
 //component 
 import Background from "../components/Background"
@@ -42,8 +43,12 @@ export default function purchase() {
     }
 
     return (
-        <div className={stylePurchase.container}>
-            <Background />
+        <motion.div 
+        className={stylePurchase.container}
+        exit={{opacity:0}} 
+        initial={{opacity:0}} 
+        animate={{opacity:1}}
+        >
             <div className={stylePurchase.content}>
                 <div className={stylePurchase.body}>
                     <div className={stylePurchase.discriptions}>
@@ -74,6 +79,6 @@ export default function purchase() {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }

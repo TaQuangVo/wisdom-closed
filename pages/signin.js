@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import styleSignIn from "../styles/SignIn.module.css";
+import {motion} from "framer-motion"
 
 //component 
 import Background from "../components/Background"
@@ -24,8 +25,11 @@ export default function purchase() {
     }
 
     return (
-        <div className={styleSignIn.container}>
-            <Background />
+        <motion.div 
+        className={styleSignIn.container}
+        exit={{opacity:0}} 
+        initial={{opacity:0}} 
+        animate={{opacity:1}}>
             <div className={styleSignIn.content}>
                 <div className={styleSignIn.body}>
                     <h1>Sign in</h1>
@@ -43,6 +47,6 @@ export default function purchase() {
                     </form>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }

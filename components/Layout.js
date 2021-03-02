@@ -1,10 +1,12 @@
 import {useEffect} from 'react'
 import styleLayout from "../styles/styleLayout.module.css"
+import {AnimatePresence, motion} from "framer-motion";
 
 //component
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import NavLinks from "../components/NavLinks";
+import Background from "../components/Background";
 
 export default function Layout({children}) {
     useEffect(() => {
@@ -36,14 +38,23 @@ export default function Layout({children}) {
 
         }
       }, [])
+
+
+
     return (
-        <div className={styleLayout.container}>
+      <AnimatePresence exitBeforeEnter>
+        <motion.div className={styleLayout.container}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}>
         <Nav /> 
         <NavLinks />
         <div className={[styleLayout.childWrap,"homeMainBody"].join(" ")}>
+            <Background />
             {children}
         </div> 
         <Footer />
-        </div>
+        </motion.div>
+      </AnimatePresence>
     )
 }
