@@ -1,18 +1,15 @@
 import React from 'react'
 import styleHome from "../styles/HomeMain.module.css"
-import Image from "next/image"
 import {useRouter} from "next/router";
+
+//component 
+import Background from "../components/Background";
 
 export default function HomeMain() {
     const Router = useRouter();
     return (
         <main className={[styleHome.container].join(" ")} > 
-            <div className={styleHome.background} >
-                <div className={styleHome.backgroundImg}>
-                    <Image src="/background.jpg" alt="Background img" layout="fill" objectFit="cover"/>
-                </div>
-                <div className={styleHome.overlay}></div>
-            </div>
+            <Background />
             <div className={styleHome.content}>
                 <div className={styleHome.body}>
                     <h1>Wisdom</h1>

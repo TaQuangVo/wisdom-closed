@@ -1,0 +1,104 @@
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: rgb(63, 87, 97);
+  padding: var(--navheight) var(--pagePadding) var(--footerHeight)
+    var(--pagePadding);
+}
+.content {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.body {
+  transform: translateY(-5vh);
+  width: 100%;
+  position: relative;
+}
+.body h1 {
+  font-family: var(--fontOne);
+  font-size: 5rem;
+  font-weight: 100;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.body p {
+  font-family: var(--fontOne);
+  font-size: 1.3rem;
+  font-weight: 100;
+  letter-spacing: 2px;
+  color: white;
+  text-align: center;
+}
+.body form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  align-items: center;
+}
+.body input {
+  width: 400px;
+  max-width: 80%;
+  padding: calc(0.5rem + 7px) 1.5rem;
+  font-family: var(--fontOne);
+  font-size: 1.3rem;
+  font-weight: 100;
+  letter-spacing: 2px;
+  color: white;
+  border: solid white 1px;
+  border-radius: 99px;
+  background-color: transparent;
+  outline: none;
+  margin-bottom: 30px;
+}
+.body input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 0.5; /* Firefox */
+}
+
+.body input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: rgba(255, 255, 255, 0.507);
+}
+
+.body input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: rgba(255, 255, 255, 0.5);
+}
+.body button {
+  width: 11rem;
+  margin: 30px auto 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px white;
+  border-radius: 999px;
+  font-family: var(--fontOne);
+  font-size: 1.4rem;
+  letter-spacing: 0.07rem;
+  font-weight: 500;
+  padding: calc(0.3rem + 2px) 2rem;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 300ms ease-in-out;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.664);
+  color: rgb(6, 18, 44);
+}
+.body button:hover {
+  background-color: white;
+}
+.body button svg {
+  height: 0.8rem;
+  fill: rgba(6, 18, 44, 0.678);
+  margin-left: 10px;
+  transition: all 300ms ease-in-out;
+}

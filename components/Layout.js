@@ -23,10 +23,6 @@ export default function Layout({children}) {
         burgerContainer.addEventListener("click", handleClick );
         navLinks.addEventListener("click",handleClick);
     
-        document.addEventListener("click", (e) => {
-          console.log(e.target)
-        })
-    
         return () => {
           burgerContainer.removeEventListener("click", handleClick);
           navLinks.removeEventListener("click", handleClick);
@@ -40,7 +36,6 @@ export default function Layout({children}) {
             {children}
         </div> 
         <Footer />
-           
         </div>
     )
 }
