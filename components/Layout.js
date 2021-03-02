@@ -16,16 +16,15 @@ export default function Layout({children}) {
         const navLinks = document.querySelector(".navLinks");
 
         const handleResize = () => {
-          console.log(window.innerHeight);
           document.documentElement.style.setProperty("--vh", window.innerHeight+"px");
         }
-    
-    
         const handleClick = () => {
           burgerIcon.classList.toggle("navBurgerActive");
           contentBody.classList.toggle("BurgerActiveContent");
           navLinks.classList.toggle("NavlinksActive");
         }
+
+        handleResize();
     
         burgerContainer.addEventListener("click", handleClick );
         navLinks.addEventListener("click",handleClick);
