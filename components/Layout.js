@@ -12,6 +12,11 @@ export default function Layout({children}) {
         const burgerIcon = document.querySelector(".navhambugerIcon")
         const contentBody = document.querySelector(".homeMainBody");
         const navLinks = document.querySelector(".navLinks");
+
+        const handleResize = () => {
+          console.log(window.innerHeight);
+          document.documentElement.style.setProperty("--vh", window.innerHeight+"px");
+        }
     
     
         const handleClick = () => {
@@ -22,10 +27,13 @@ export default function Layout({children}) {
     
         burgerContainer.addEventListener("click", handleClick );
         navLinks.addEventListener("click",handleClick);
+        window.addEventListener("resize", handleResize);
     
         return () => {
           burgerContainer.removeEventListener("click", handleClick);
           navLinks.removeEventListener("click", handleClick);
+          window.removeEventListener("resize", handleResize);
+
         }
       }, [])
     return (
