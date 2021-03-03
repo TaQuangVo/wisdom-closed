@@ -56,6 +56,7 @@ export default function purchase() {
                         <h2>3$</h2>
                         <p>You will resive a wisdom and a code</p>
                         <p>after the payment went through.</p>
+                        <p>Please, fill out all the boxes</p>
                     </div>
                     <span className={stylePurchase.divider}></span>
                     <div className={stylePurchase.forms}>

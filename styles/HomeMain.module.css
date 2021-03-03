@@ -61,7 +61,7 @@
 }
 .body p {
   font-family: var(--fontOne);
-  font-size: 1rem;
+  font-size: 1.2rem;
   letter-spacing: 0.07rem;
   font-weight: 100;
   color: rgba(255, 255, 255, 0.61);
