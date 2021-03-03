@@ -107,6 +107,7 @@
   background-color: transparent;
   outline: none;
   margin-bottom: 20px;
+  cursor: text;
 }
 .forms input::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */

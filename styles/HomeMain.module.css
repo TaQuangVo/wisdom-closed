@@ -81,3 +81,10 @@
 .body p:hover {
   color: rgb(255, 255, 255);
 }
+
+/*media*/
+@media (max-width: 600px) {
+  .body p {
+    color: rgba(255, 255, 255, 0.897);
+  }
+}
