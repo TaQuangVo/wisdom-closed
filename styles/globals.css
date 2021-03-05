@@ -43,6 +43,10 @@ html {
   --fontTwo: "Great Vibes", cursive;
 }
 
+.displayNone {
+  display: none !important;
+}
+
 /*nav effect*/
 .navBurgerActive {
   transform: rotate(180deg);

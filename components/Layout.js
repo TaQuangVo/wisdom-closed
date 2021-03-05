@@ -8,6 +8,11 @@ import Footer from "../components/Footer";
 import NavLinks from "../components/NavLinks";
 import Background from "../components/Background";
 
+//stripe
+import {loadStripe} from "@stripe/stripe-js";
+import {Elements} from "@stripe/react-stripe-js"
+const stripePromise = loadStripe("pk_test_51IQpxDHUaCGC0csozefIvtHwyJfeQDKz01NzxlesKSJ9XicBoCwjU6mUmekpQaAi4Mlb8iIwz0u3cVeaSYV6IiJ70078lSyNjC");
+
 export default function Layout({children}) {
     useEffect(() => {
         const burgerContainer = document.querySelector(".navHambuger");
@@ -50,7 +55,9 @@ export default function Layout({children}) {
         <NavLinks />
         <div className={[styleLayout.childWrap,"homeMainBody"].join(" ")}>
             <Background />
-            {children}
+            <Elements stripe={stripePromise}>
+              {children}         
+            </Elements>
         </div> 
         <Footer />
         </motion.div>

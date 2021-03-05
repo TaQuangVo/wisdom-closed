@@ -116,13 +116,18 @@
 }
 .forms input:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: rgba(255, 255, 255, 0.61);
+  color: cardElementOptions;
 }
 .forms input::-ms-input-placeholder {
   /* Microsoft Edge */
   color: rgba(255, 255, 255, 0.61);
 }
-
+.cardElementContainer {
+  width: 100%;
+  padding: calc(0.4rem + 4px + 0.56rem) 1.5rem;
+  border: solid white 1px;
+  border-radius: 99px;
+}
 .forms button {
   width: 14rem;
   display: flex;
@@ -143,14 +148,124 @@
   color: rgb(6, 18, 44);
   margin: 30px auto 0 auto;
 }
-.forms button:hover {
+.forms button:enabled:hover {
   background-color: white;
+}
+.forms button:disabled {
+  cursor: not-allowed;
 }
 .forms button svg {
   height: 0.8rem;
   fill: rgba(6, 18, 44, 0.678);
   margin-left: 10px;
   transition: all 300ms ease-in-out;
+}
+.formOneError {
+  margin-top: 20px;
+  font-family: var(--fontOne);
+  font-size: 0.9rem;
+  font-weight: 100;
+  color: rgba(252, 39, 39, 0.582);
+  text-align: center;
+  letter-spacing: 1.2px;
+}
+
+/*form 2*/
+.loaders {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  position: relative;
+  margin: auto;
+}
+.loaders p {
+  margin-left: 0.5rem;
+}
+.loaders svg {
+  width: 1.2rem;
+  fill: rgba(255, 255, 255, 0.534);
+}
+.secondform {
+  width: 100%;
+}
+.creatingPayment {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.creatingPayment p {
+  font-family: var(--fontOne);
+  font-size: 1.5rem;
+  font-weight: 100;
+  color: rgba(255, 255, 255, 0.582);
+  text-align: center;
+  letter-spacing: 1.2px;
+}
+.secondInput {
+  margin-top: 40px;
+}
+.secondInput h4 {
+  font-family: var(--fontOne);
+  font-size: 1.2rem;
+  font-weight: 100;
+  color: rgba(255, 255, 255, 0.582);
+  text-align: center;
+  letter-spacing: 1.2px;
+}
+.emailSecondInput {
+  margin-top: 50px;
+}
+.formError {
+  margin-top: 20px;
+  font-family: var(--fontOne);
+  font-size: 0.9rem;
+  font-weight: 100;
+  color: rgba(252, 39, 39, 0.582);
+  text-align: center;
+  letter-spacing: 1.2px;
+}
+.paymentFailed {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.paymentFailed h4 {
+  font-family: var(--fontOne);
+  font-size: 1.9rem;
+  font-weight: 100;
+  color: rgba(255, 255, 255, 0.582);
+  text-align: center;
+  letter-spacing: 1.2px;
+  margin-top: 50px;
+}
+.paymentFailed h6 {
+  font-family: var(--fontOne);
+  font-size: 1.2rem;
+  font-weight: 100;
+  color: rgba(255, 255, 255, 0.582);
+  text-align: center;
+  letter-spacing: 1.2px;
+}
+.paymentFailed button {
+  width: 14rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px white;
+  border-radius: 999px;
+  font-family: var(--fontOne);
+  font-size: 1.4rem;
+  letter-spacing: 0.07rem;
+  font-weight: 500;
+  padding: calc(0.2rem + 2px) 2rem;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 300ms ease-in-out;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.664);
+  color: rgb(6, 18, 44);
+  margin: 50px auto 0 auto;
 }
 
 /*media query*/
@@ -184,4 +299,74 @@
     max-width: 90%;
     height: fit-content;
   }
+}
+
+/*success page*/
+
+.success {
+  width: 1300px;
+  height: 900px;
+  max-width: 80%;
+  max-height: 90%;
+  border: solid 1px rgba(255, 255, 255, 0.356);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.success__body {
+  padding: 20px 120px;
+}
+.success__body h1 {
+  font-family: var(--fontOne);
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.76);
+  margin-bottom: 10px;
+  text-align: center;
+  margin-bottom: 4rem;
+  line-height: 2rem;
+}
+.success__body h2 {
+  font-family: var(--fontOne);
+  font-size: 3rem;
+  letter-spacing: 0.08rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.76);
+  margin-bottom: 1rem;
+  text-align: center;
+  line-height: 3.3rem;
+}
+.success__body h4 {
+  font-family: var(--fontOne);
+  font-size: 1.5rem;
+  letter-spacing: 0.08rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.76);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.success__body h3 {
+  font-family: var(--fontOne);
+  font-size: 1.7rem;
+  letter-spacing: 0.08rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.76);
+  margin-bottom: 10px;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  line-height: 2rem;
+}
+.success__body p {
+  font-family: var(--fontOne);
+  font-size: 1rem;
+  letter-spacing: 0.08rem;
+  font-weight: 100;
+  color: rgba(255, 255, 255, 0.534);
+  margin-bottom: 10px;
+  text-align: center;
+}
+.success__body p span {
+  text-decoration: underline;
+  cursor: pointer;
 }
