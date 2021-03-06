@@ -45,6 +45,7 @@
   height: 100%;
   background-color: white;
   transform: translateY(-300%);
+  transition: all 300ms ease-in-out;
 }
 .hambugerIcon::after {
   content: "";
@@ -53,4 +54,5 @@
   height: 100%;
   background-color: white;
   transform: translateY(300%);
+  transition: all 300ms ease-in-out;
 }

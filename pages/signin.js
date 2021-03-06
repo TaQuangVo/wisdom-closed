@@ -1,14 +1,24 @@
-import {useState} from 'react'
+import {useState, useContext} from 'react'
 import styleSignIn from "../styles/SignIn.module.css";
 import {motion} from "framer-motion"
+import {useEffect} from "react"
+import { useRouter } from 'next/router'
 
 //component 
 import Background from "../components/Background"
 
+//contexts
+import {userContext} from "../contexts/userContext"
+
 
 export default function purchase() {
+
+    const router = useRouter();
+
+
     const [email,setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const {user,signInUser} = useContext(userContext);
 
     const handleChange = (e) => {
         if(e.target.name === "email"){
@@ -22,7 +32,15 @@ export default function purchase() {
         e.preventDefault();
         console.log("email: " + email);
         console.log("pwd: " + password);
+        signInUser(email,password);
+
     }
+
+    useEffect(() => {
+        if( user !== null){
+            router.push("/user")
+        }
+    }, [user])
 
     return (
         <motion.div 

@@ -3,6 +3,7 @@ import stylePurchase from "../styles/StylePurchase.module.css";
 import {motion} from "framer-motion"
 import axios from "axios";
 import { useRouter } from 'next/router'
+import Link from "next/link";
 
 /*spinner*/
 import Loader from "react-loader-spinner";
@@ -373,7 +374,7 @@ export default function purchase() {
                             <h2>{userData.wisdom}</h2>
                             <h4>~ {userData.author} ~</h4>
                             <h3>Your code is: <br/> {userData.myCode}</h3>
-                            <p>You have access to your wisdom and your code <br/>in the dashbord. <span>Login here!</span></p>
+                            <p>You have access to your wisdom and your code <br/>in the dashbord. <span><Link href="/signin">Login here!</Link></span></p>
                     </div>
                 </div>
                 )}
