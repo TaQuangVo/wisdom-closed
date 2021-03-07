@@ -1,10 +1,11 @@
 import React from 'react'
 import styleHome from "../styles/HomeMain.module.css"
 import {useRouter} from "next/router";
+import Link from "next/link";
 
 //component 
 
-
+ 
 export default function HomeMain() {
     const Router = useRouter();
     return (
@@ -20,7 +21,7 @@ export default function HomeMain() {
                             <polygon points="10.3 8.5 1.8 0 0 1.8 6.7 8.5 0 15.2 1.8 17 10.3 8.5"/>
                         </svg>
                     </button>
-                    <p>How does it work?</p>
+                    <Link href="/how"><p>How does it work?</p></Link>
                 </div>
             </div>
         </main>
