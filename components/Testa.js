@@ -51,8 +51,8 @@ export default function Testa() {
                 </svg>
             </div>
             <div className={styleTesla.content}>
-                <h2>Do you want to win a Tesla Modle 3?</h2>
-                <Link href="/about"><button>Learn more</button></Link>
+                <h2>It's really wise to not miss the chance to win a Tesla Model 3</h2>
+                <Link href="/learnmore"><button>Learn more</button></Link>
             </div>
             <div ref={el => closeBtn = el} className={styleTesla.close}>
             <svg viewBox="0 0 42 42">
