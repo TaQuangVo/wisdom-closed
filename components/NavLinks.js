@@ -22,8 +22,8 @@ export default function NavLinks() {
                     <Link href="/user"><p>Dasboard</p></Link>
                 }
                 
-                <Link href="/how"><p>How doe it work?</p></Link>
-                <Link href="/about"><p>About us</p></Link>
+                <Link href="/how"><p>How does it work?</p></Link>
+                <Link href="/about"><p>Purchasing policy</p></Link>
                 <Link href="/purchase">
                     <button>
                         Get my wisdom

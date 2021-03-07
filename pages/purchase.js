@@ -382,28 +382,3 @@ export default function purchase() {
         </motion.div>
     )
 }
-
-
-    // useEffect(() => {
-
-        
-
-    //     const handleResize = () => {
-    //         if (window.innerWidth > 1400){
-    //             cardElement.update({style: {base: {fontSize: '20.8px'}}});
-    //         }else if (window.innerWidth <= 1400) {
-    //             cardElement.update({style: {base: {fontSize: '18.2px'}}});
-    //         } else if (window.innerWidth <= 1000) {
-    //             cardElement.update({style: {base: {fontSize: '15.6px'}}});
-    //         } else if (window.innerWidth <= 900){
-    //             cardElement.update({style: {base: {fontSize: '14.3px'}}});
-    //         } else if (window.innerWidth < 600) {
-    //             cardElement.update({style: {base: {fontSize: '11.7px'}}});
-    //         }
-    //       }
-    //     window.addEventListener('resize', handleResize);
-    //     return () => {
-    //         window.removeEventListener('resize', handleResize);
-    //     }
-    // }, [])
-    

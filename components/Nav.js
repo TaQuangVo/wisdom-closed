@@ -8,7 +8,7 @@ export default function Nav() {
             <div className={styleNav.body}>
                 <div className={styleNav.logo}>
                     <Link href="/">
-                    <h2>Wishdom.nu</h2>
+                    <h2>Wisdom</h2>
                     </Link>
                 </div>
                 <div className={[styleNav.hambuger,"navHambuger"].join(" ")}>

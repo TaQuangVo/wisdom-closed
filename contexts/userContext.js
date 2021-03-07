@@ -22,6 +22,7 @@ export default function UserContextProvider({children}) {
     const db = firebase.firestore();
 
     const [user, setUSer] = useState(null);
+    const [error, setError] = useState("");
 
     useEffect(() => {
         auth.onAuthStateChanged((data) => {
@@ -48,7 +49,11 @@ export default function UserContextProvider({children}) {
 
 
     const signInUser = async (email,pwd) => {
-        await auth.signInWithEmailAndPassword(email,pwd);
+        await auth.signInWithEmailAndPassword(email,pwd).then( () => {
+            setError("");
+        }).catch(error => {
+            setError(error.message)
+        })
     }
     const signOutUser = async () => {
         await auth.signOut();
@@ -56,7 +61,7 @@ export default function UserContextProvider({children}) {
 
 
     return (
-        <userContext.Provider value={{user, signInUser,signOutUser}}>
+        <userContext.Provider value={{user,error, signInUser,signOutUser}}>
             {children} 
         </userContext.Provider>
     )
