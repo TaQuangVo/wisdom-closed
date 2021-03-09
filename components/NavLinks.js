@@ -23,7 +23,7 @@ export default function NavLinks() {
                 }
                 
                 <Link href="/how"><p>How does it work?</p></Link>
-                <Link href="/about"><p>Purchasing policy</p></Link>
+                <Link href="/policy"><p>Purchasing policy</p></Link>
                 <Link href="/purchase">
                     <button>
                         Get my wisdom

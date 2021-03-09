@@ -293,6 +293,7 @@ export default function purchase() {
                                 <div className={stylePurchase.cardElementContainer}>
                                     <CardElement options={cardElementOptions} />
                                 </div>
+                                <p className={stylePurchase.acceptPolicy}>* By commiting the payment, you agreed to our <span><Link href="/policy">Purchasing policy</Link></span></p>
                                 <button type="submit" disabled={isLoading || !stripe}>
                                     Get My wisdom
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.3 17">

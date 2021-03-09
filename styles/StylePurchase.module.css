@@ -129,6 +129,18 @@
   border: solid white 1px;
   border-radius: 99px;
 }
+.forms .acceptPolicy {
+  font-family: var(--fontOne);
+  font-size: 1.2rem;
+  font-weight: 100;
+  color: rgba(255, 255, 255, 0.582);
+  letter-spacing: 1.2px;
+  margin-top: 2rem;
+}
+.forms .acceptPolicy span {
+  text-decoration: underline;
+  cursor: pointer;
+}
 .forms button {
   width: 14rem;
   display: flex;

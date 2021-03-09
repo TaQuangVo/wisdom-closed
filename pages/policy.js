@@ -3,7 +3,7 @@ import {motion} from "framer-motion"
 
 
 
-export default function purchase() {
+export default function Policy() {
     return (
         <motion.div 
         className={styleAbout.container}
