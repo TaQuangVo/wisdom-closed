@@ -2,15 +2,22 @@ import { motion } from 'framer-motion'
 import { useContext} from 'react'
 import styleUser from "../styles/userStyle.module.css"
 import Link from "next/link"
-
+import { useRouter } from 'next/router'
 
 //contexts
 import {userContext} from "../contexts/userContext"
 
 export default function user() {
 
+    const router = useRouter();
 
     const {user} = useContext(userContext);
+
+    const handleRequest = () => {
+        if(user.totalCash >= 300){
+            router.push("/paymentrequest");
+        }
+    }
 
     return (
 
@@ -43,15 +50,15 @@ export default function user() {
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.12 27.06">
                             <path d="M806.05,547.51c0,1.13-.77,1.69-2.32,1.69H803l-.64,0v2h-1.81v-2l-.63,0h-.69c-1.54,0-2.31-.56-2.31-1.69v-5.78H799v5.69h1.56v-9.63l-3-3.68a2.78,2.78,0,0,1-.67-1.78v-4.59q0-1.68,2.31-1.68c.16,0,.39,0,.69,0l.63,0v-2h1.81v2l.64,0c.31,0,.54,0,.71,0,1.55,0,2.32.56,2.32,1.68V533H804v-5.2h-1.59v9l3,3.64a2.73,2.73,0,0,1,.67,1.75Zm-5.48-12.76v-6.92H799v4.93Zm3.4,12.67v-5.6l-1.59-1.93v7.53Z" transform="translate(-796.94 -524.1)"/>
                         </svg>
-                        <h5>{user.directPoint*1 + user.level_one*0.1 + user.level_two*0.05 + user.level_three*0.025}</h5>
+                        <h5>{user.totalCash}</h5>
                         </div>
                     </div>
-                    <button>
-                        Request a withdraw
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.3 17">
-                            <polygon points="10.3 8.5 1.8 0 0 1.8 6.7 8.5 0 15.2 1.8 17 10.3 8.5"/>
-                        </svg>
-                    </button>
+                        <button onClick={handleRequest}>
+                            Request a withdraw
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.3 17">
+                                <polygon points="10.3 8.5 1.8 0 0 1.8 6.7 8.5 0 15.2 1.8 17 10.3 8.5"/>
+                            </svg>
+                        </button>
                     <p>A minimum of 300$ is required to make a request</p>
                 </div>
                 ):(

@@ -280,15 +280,15 @@ export default function purchase() {
                 <div className={stylePurchase.body}>
                     <div className={stylePurchase.discriptions}>
                         <h1>Purchase a Wisdom</h1>
-                        <h2>3$</h2>
-                        <p>You will resive a wisdom and a code</p>
+                        <h2>3.95$</h2>
+                        <p>You will receive a wisdom and a code</p>
                         <p>after the payment went through.</p>
                     </div>
                     <span className={stylePurchase.divider}></span>
                     <div className={stylePurchase.forms}>
                         <form onSubmit={e => handleSubmit(e)} className={isLoading ? "displayNone" : ""}>
                             <div>
-                                <h3>Create a accout</h3>
+                                <h3>Create an accout</h3>
                                 <input onChange={e => handleChange(e)} type="text" name="name" placeholder="Name" value={name}/>
                                 <input onChange={e => handleChange(e)} type="text" name="email" placeholder="Email" value={email}/>
                                 <input onChange={e => handleChange(e)} type="password" name="password" placeholder="Password" />

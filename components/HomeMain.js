@@ -4,6 +4,7 @@ import {useRouter} from "next/router";
 import Link from "next/link";
 
 //component 
+import Tesla from "../components/Testa"
 
  
 export default function HomeMain() {
@@ -14,7 +15,7 @@ export default function HomeMain() {
             <div className={styleHome.content}>
                 <div className={styleHome.body}>
                     <h1>Wisdom</h1>
-                    <h2>Get a Wisdom, get a chans to make money</h2>
+                    <h2>Get a Wisdom, get a chans to be a millioner</h2>
                     <button onClick={() => Router.push("/purchase")}>
                         Get my wisdom
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.3 17">
@@ -23,7 +24,9 @@ export default function HomeMain() {
                     </button>
                     <Link href="/how"><p>How does it work?</p></Link>
                 </div>
+                
             </div>
+            <Tesla />
         </main>
     )
 }

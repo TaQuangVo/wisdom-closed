@@ -7,7 +7,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import NavLinks from "../components/NavLinks";
 import Background from "../components/Background";
-import Tesla from "../components/Testa"
+
 
 //stripe
 import {loadStripe} from "@stripe/stripe-js";
@@ -62,7 +62,7 @@ export default function Layout({children}) {
               {children}         
             </Elements>
         </div> 
-        <Tesla />
+        
         <Footer />
         </motion.div>
       </AnimatePresence>

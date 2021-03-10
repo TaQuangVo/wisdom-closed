@@ -35,7 +35,8 @@ export default function UserContextProvider({children}) {
                
 
                 db.collection("users").doc(data.uid).get().then(userData => {
-                    setUSer(userData.data());
+                    const user = userData.data();
+                    setUSer(user);
                   })
               
               console.log("user signed in")
