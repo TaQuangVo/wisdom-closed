@@ -1,16 +1,16 @@
-import {useEffect,useState} from 'react'
+import {useState,useContext} from 'react'
 import stylePurchase from "../styles/StylePurchase.module.css";
 import {motion} from "framer-motion"
 import axios from "axios";
 import { useRouter } from 'next/router'
 import Link from "next/link";
 
+//contexts
+import {userContext} from "../contexts/userContext"
+
 /*spinner*/
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-
-//component 
-import Background from "../components/Background"
 
 //stripe
 import {CardElement, useStripe, useElements} from "@stripe/react-stripe-js";
@@ -33,6 +33,9 @@ export default function purchase() {
 
     //userData;
     const [userData,setUSerData] = useState (null);
+
+    //usersignin
+    const {user} = useContext(userContext);
 
 
     const elements = useElements();
@@ -74,6 +77,8 @@ export default function purchase() {
             infoVerify = "Password has to be at least 6 charactors"
         }else if(code === ""){
             infoVerify = "fill in your code"
+        }else if(user !== null){
+            infoVerify = "Please log out before purchasing"
         }
 
 

@@ -26,9 +26,13 @@ export default function UserContextProvider({children}) {
 
     useEffect(() => {
         auth.onAuthStateChanged((data) => {
+
+
             if (data) {
               // User is signed in.
                 console.log(data.uid)
+
+               
 
                 db.collection("users").doc(data.uid).get().then(userData => {
                     setUSer(userData.data());
