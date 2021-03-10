@@ -12,8 +12,8 @@ import Background from "../components/Background";
 //stripe
 import {loadStripe} from "@stripe/stripe-js";
 import {Elements} from "@stripe/react-stripe-js"
-//const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY);
-const stripePromise = loadStripe("pk_test_51IQpxDHUaCGC0csozefIvtHwyJfeQDKz01NzxlesKSJ9XicBoCwjU6mUmekpQaAi4Mlb8iIwz0u3cVeaSYV6IiJ70078lSyNjC");
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY);
+//const stripePromise = loadStripe("pk_test_51IQpxDHUaCGC0csozefIvtHwyJfeQDKz01NzxlesKSJ9XicBoCwjU6mUmekpQaAi4Mlb8iIwz0u3cVeaSYV6IiJ70078lSyNjC");
 
 export default function Layout({children}) {
     useEffect(() => {
