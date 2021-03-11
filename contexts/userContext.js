@@ -36,7 +36,10 @@ export default function UserContextProvider({children}) {
 
                 db.collection("users").doc(data.uid).get().then(userData => {
                     const user = userData.data();
-                    setUSer(user);
+                    setUSer({
+                        ...user,
+                        hasDrown: user.totalCash !== user.totalCash_H,
+                    });
                   })
               
               console.log("user signed in")

@@ -50,6 +50,8 @@
 .points {
   display: flex;
   margin: 4rem 0;
+  width: 20rem;
+  justify-content: space-between;
 }
 .points h5 {
   font-size: 2rem;
@@ -58,9 +60,6 @@
 .points svg {
   height: 2rem;
   fill: white;
-}
-.points div:nth-child(2) {
-  margin: 0 5vw;
 }
 
 .body button {
