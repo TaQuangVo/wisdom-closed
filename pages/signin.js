@@ -50,8 +50,8 @@ export default function purchase() {
             <div className={styleSignIn.content}>
                 <div className={styleSignIn.body}>
                     <h1>Sign in</h1>
-                    <p>Well come back to Wisdom.nu</p>
-                    <p>Signin to see your status</p>
+                    <p>Welcome back to Wizzdom.net</p>
+                    <p>Sign in to see your status</p>
                     <form onSubmit={e => {handleSubmit(e)}}>
                         <input onChange={(e)=>{handleChange(e)}} type="text" name="email" placeholder="Email" />
                         <input onChange={(e)=>{handleChange(e)}} type="password" name="password" placeholder="Password" autoComplete="on"/>

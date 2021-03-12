@@ -15,8 +15,9 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig);
-      // firebase.analytics();
+      firebase.analytics();
     }
+    
   }, [])
 
   return ( 

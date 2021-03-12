@@ -76,7 +76,7 @@ export default function user() {
                 ):(
                 <div className={styleUser.body}>
                     <h1>Your are not logged in</h1>
-                    <h2>Pleaze Login, <Link href="/signin"><span>here</span></Link></h2>
+                    <h2>Please Login, <Link href="/signin"><span>here</span></Link></h2>
                     <Link href="/"><p className={styleUser.goHome}>Got to homepage</p></Link>
                 </div>
                 )}
