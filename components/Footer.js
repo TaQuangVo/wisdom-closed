@@ -27,7 +27,7 @@ export default function Footer() {
 
             </div>
             <div className={styleFooter.copyright}>
-                <h5>Copyright 2021 Wisdom.nu</h5>
+                <h5>Copyright 2021 Wizzdom</h5>
             </div>
         </footer>
     )

@@ -15,7 +15,7 @@ export default function HomeMain() {
             <div className={styleHome.content}>
                 <div className={styleHome.body}>
                     <h1>Wisdom</h1>
-                    <h2>Get a Wisdom, get a chans to be a millioner</h2>
+                    <h2>Get a Wisdom, get a chance to be a millionaire</h2>
                     <button onClick={() => Router.push("/purchase")}>
                         Get my wisdom
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.3 17">

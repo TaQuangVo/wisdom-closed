@@ -3,6 +3,7 @@ import styleSignIn from "../styles/SignIn.module.css";
 import {motion} from "framer-motion"
 import {useEffect} from "react"
 import { useRouter } from 'next/router'
+import Link from "next/link"
 
 //component 
 import Background from "../components/Background"
@@ -54,12 +55,14 @@ export default function purchase() {
                     <form onSubmit={e => {handleSubmit(e)}}>
                         <input onChange={(e)=>{handleChange(e)}} type="text" name="email" placeholder="Email" />
                         <input onChange={(e)=>{handleChange(e)}} type="password" name="password" placeholder="Password" autoComplete="on"/>
+                        
                         <button type="submit" >
                             Sign in 
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.3 17">
                                 <polygon points="10.3 8.5 1.8 0 0 1.8 6.7 8.5 0 15.2 1.8 17 10.3 8.5"/>
                             </svg>
                         </button>
+                        <Link href="/resetpassword"><p className={styleSignIn.forgotPass}>Forgot your password?</p></Link>
                         <p className={styleSignIn.error}>{error}</p>
                     </form>
                 </div>

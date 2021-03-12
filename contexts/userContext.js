@@ -66,10 +66,44 @@ export default function UserContextProvider({children}) {
     const signOutUser = async () => {
         await auth.signOut();
     }
+    const forgotPassword = async (email) => {
+
+        const regEx = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        let returnData;
+
+        if(!regEx.test(email)){
+            setError("Please enter a Email address")
+            returnData = {
+                error:true,
+                message:"Field can not be empty",
+            }
+        }else{
+
+            
+            await auth.sendPasswordResetEmail(email).then(res => {
+                setError("")
+                returnData = {
+                    error:false,
+                    message:"Success"
+                };
+            }).catch(err => {
+                setError(err.message);
+                returnData = {
+                    error:true,
+                    message: err.message,
+                };
+            })
+
+        }
+
+        
+        return returnData;
+    }
 
 
     return (
-        <userContext.Provider value={{user,error, signInUser,signOutUser}}>
+        <userContext.Provider value={{user,error, signInUser,signOutUser, forgotPassword}}>
             {children} 
         </userContext.Provider>
     )
