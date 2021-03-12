@@ -1,8 +1,9 @@
 
 import styleRequest from "../styles/Request.module.css";
 import {motion} from "framer-motion"
-import {useState, useContext, useRef} from 'react'
+import {useState, useContext, useRef, useEffect} from 'react'
 import Link from "next/link"
+import { useRouter } from 'next/router'
 
 //firebase
 import firebase from "firebase/app"
@@ -17,6 +18,17 @@ export default function PaymentRequest() {
 
     //user context
     const {user} = useContext(userContext);
+
+    const router = useRouter();
+
+
+    useEffect(() => {
+        if(user !== null){
+            if(user.totalCash < 200){
+                router.replace("/user");
+            }  
+        }      
+    }, [user])
 
     //filebase init
     if(!firebase.apps.length){
