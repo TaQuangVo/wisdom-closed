@@ -27,7 +27,7 @@ export default function Footer() {
                                 isEng ? (
                                     <h5>Sign In</h5>
                                 ):(
-                                    <h5>تسجيل الدخول</h5>
+                                    <h5 >تسجيل الدخول</h5>
                                 )
                             }
                         </Link>
@@ -37,7 +37,7 @@ export default function Footer() {
                                 isEng ? (
                                     <h5>Dashboard</h5>
                                 ):(
-                                    <h5>لوحة البيانات</h5>
+                                    <h5 >لوحة البيانات</h5>
                                 )
                             }
                         </Link>
@@ -50,7 +50,7 @@ export default function Footer() {
                     isEng ? (
                         <h5>Copyright 2021 Wizzdom</h5>
                     ) : (
-                        <h5>Wizzdom جميع الحقوق محفوظة لشركة</h5>
+                        <h5 >Wizzdom جميع الحقوق محفوظة لشركة</h5>
                     )
                 }
                 

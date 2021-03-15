@@ -69,9 +69,11 @@ export default function Testa() {
                     languageLayout(<h2>It's really wise to not miss the chance to win a Tesla Model 3</h2>,<h2>‎أنه لمن الحكمة ان لا تضيع فرصة الفوز بسيارة تسلا موديل ٣</h2>)
                 }
                 
-                <Link href="/learnmore"><button>{
+                <Link href="/learnmore" >
+                    <button >{
                      languageLayout("Learn more","اعرف المزيد")
-                    }</button></Link>
+                    }</button>
+                </Link>
             </div>
             <div ref={el => closeBtn = el} className={styleTesla.close}>
             <svg viewBox="0 0 42 42">
