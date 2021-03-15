@@ -17,6 +17,16 @@ export default function LanguageContextProvider({children}) {
         })
     }
 
+    useEffect(() => {
+        if(isEng){
+            document.documentElement.style.setProperty("--fontOne", "'Saira Extra Condensed', sans-serif");
+        }else{
+            document.documentElement.style.setProperty("--fontOne", "'Tajawal', sans-serif");
+        }
+        
+
+    }, [isEng])
+
 
 
     return (

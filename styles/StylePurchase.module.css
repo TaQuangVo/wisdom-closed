@@ -142,7 +142,7 @@
   cursor: pointer;
 }
 .forms button {
-  width: 16rem;
+  width: 17rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -152,7 +152,7 @@
   font-size: 1.4rem;
   letter-spacing: 0.07rem;
   font-weight: 500;
-  padding: calc(0.2rem + 2px) 2rem;
+  padding: calc(0.2rem + 2px) 1rem;
   cursor: pointer;
   margin-bottom: 20px;
   transition: all 300ms ease-in-out;
