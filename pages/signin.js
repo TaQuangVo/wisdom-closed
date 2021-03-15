@@ -5,9 +5,6 @@ import {useEffect} from "react"
 import { useRouter } from 'next/router'
 import Link from "next/link"
 
-//component 
-import Background from "../components/Background"
-
 //contexts
 import {userContext} from "../contexts/userContext"
 import {languageContext} from "../contexts/languageContext";
