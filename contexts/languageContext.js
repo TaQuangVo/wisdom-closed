@@ -9,7 +9,7 @@ export const languageContext = createContext(null);
 
 export default function LanguageContextProvider({children}) {
 
-    const [isEng, setIsEng] = useState(false);
+    const [isEng, setIsEng] = useState(true);
 
     const changeLanguage = () => {
         setIsEng(prev => {
