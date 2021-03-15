@@ -34,6 +34,8 @@
   letter-spacing: 0.2rem;
   color: white;
   margin-bottom: 70px;
+  text-align: center;
+  max-width: 85%;
 }
 .body button {
   display: flex;
