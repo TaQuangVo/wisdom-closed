@@ -7,6 +7,7 @@ import Link from "next/link";
 
 //contexts
 import {userContext} from "../contexts/userContext"
+import {languageContext} from "../contexts/languageContext";
 
 /*spinner*/
 import Loader from "react-loader-spinner";
@@ -41,6 +42,18 @@ export default function purchase() {
     const elements = useElements();
     const stripe = useStripe();
     const router = useRouter();
+
+    const  {isEng, changeLanguage} = useContext(languageContext);
+
+    const textAlign = isEng ? "left":"right";
+
+    const languageLayout = (Engver, ArbVer) => {
+        if(isEng){
+            return Engver;
+        }else{
+            return ArbVer;
+        }
+    }
 
 
     const handleChange = (e) => {
@@ -272,35 +285,57 @@ export default function purchase() {
         className={stylePurchase.container}
         exit={{opacity:0}} 
         initial={{opacity:0}} 
-        animate={{opacity:1}}
+        animate={{opacity:1}} 
         >
             <div className={stylePurchase.content}>
                 { userData === null ?
             (
                 <div className={stylePurchase.body}>
-                    <div className={stylePurchase.discriptions}>
-                        <h1>Purchase a Wisdom</h1>
-                        <h2>3.95$</h2>
-                        <p>You will receive a wisdom and a code</p>
-                        <p>after the payment went through.</p>
+                    <div className={stylePurchase.discriptions}> 
+                        {languageLayout(<h1>Purchase a Wisdom</h1>,<h1>اشتري حكمة</h1>)}
+                        <h2>3.95$</h2> 
+                        {languageLayout(<p>You will receive a wisdom and a code</p>,<p>ستحصل على حكمة ورمز خاص بك</p>)}
+                        {languageLayout(<p>after the payment went through.</p>,<p>بعد قيامك بعملية الشراء</p>)}
                     </div>
                     <span className={stylePurchase.divider}></span>
                     <div className={stylePurchase.forms}>
                         <form onSubmit={e => handleSubmit(e)} className={isLoading ? "displayNone" : ""}>
                             <div>
-                                <h3>Create an accout</h3>
-                                <input onChange={e => handleChange(e)} type="text" name="name" placeholder="Name" value={name}/>
-                                <input onChange={e => handleChange(e)} type="text" name="email" placeholder="Email" value={email}/>
-                                <input onChange={e => handleChange(e)} type="password" name="password" placeholder="Password" />
-                                <h3>Purchase Code</h3>
-                                <input onChange={e => handleChange(e)} type="text" name="code" placeholder="Purchase code" value={code}/>
-                                <h3>Payment</h3>
+                                
+                                {languageLayout(<h3 >Create an accout</h3>,<h3 className="arabicText">انشاء حساب</h3>)}
+                                <input 
+                                    style={{textAlign:textAlign}}
+                                    onChange={e => handleChange(e)} 
+                                    type="text" 
+                                    name="name" 
+                                    placeholder={languageLayout("Name","الأسم")} 
+                                    value={name}/>
+                                <input 
+                                    style={{textAlign:textAlign}}
+                                    onChange={e => handleChange(e)} 
+                                    type="text" name="email" 
+                                    placeholder={languageLayout("Email","البريد الألكتروني")} 
+                                    value={email}/>
+                                <input 
+                                    style={{textAlign:textAlign}}
+                                    onChange={e => handleChange(e)} 
+                                    type="password" name="password" 
+                                    placeholder={languageLayout("Password","كلمة المرور")} />
+                                {languageLayout(<h3 >Purchase Code</h3>,<h3 className="arabicText">رمز الشراء</h3>)}
+                                <input 
+                                    style={{textAlign:textAlign}}
+                                    onChange={e => handleChange(e)} 
+                                    type="text" name="code" 
+                                    placeholder={languageLayout("Purchase code" ,"رمز الشراء")} 
+                                    value={code}/>
+                                {languageLayout(<h3>Payment</h3>,<h3 className="arabicText">الدفع</h3>)}
                                 <div className={stylePurchase.cardElementContainer}>
                                     <CardElement options={cardElementOptions} />
                                 </div>
-                                <p className={stylePurchase.acceptPolicy}>* By commiting the payment, you agreed to our <span><Link href="/policy">Purchasing policy</Link></span></p>
+                                {languageLayout(<p className={stylePurchase.acceptPolicy}>* By commiting the payment, you agreed to our <span><Link href="/policy">Purchasing policy</Link></span></p>,<p className={[stylePurchase.acceptPolicy,"arabicText"].join(" ")} >* من خلال قيامك بعملية الشراء<span><Link href="/policy">سياسة الشراء</Link></span>الخاصة  بنا</p>)}
+                                
                                 <button type="submit" disabled={isLoading || !stripe}>
-                                    Get My wisdom
+                                {languageLayout("Get my wisdom","احصل على الحكمة")}
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.3 17">
                                         <polygon points="10.3 8.5 1.8 0 0 1.8 6.7 8.5 0 15.2 1.8 17 10.3 8.5"/>
                                     </svg>
@@ -327,7 +362,8 @@ export default function purchase() {
                                         <path d="M325.08,649.18a21,21,0,1,0,21,21A21,21,0,0,0,325.08,649.18Zm0,38a17,17,0,1,1,17-17A17,17,0,0,1,325.08,687.18Z" transform="translate(-304.08 -649.18)"/>
                                         <path d="M327.91,670.18l4.53-4.53a2,2,0,0,0-2.83-2.83l-4.53,4.53-4.52-4.53a2,2,0,1,0-2.83,2.83l4.53,4.53-4.53,4.53a2,2,0,1,0,2.83,2.83l4.52-4.53,4.53,4.53a2,2,0,0,0,2.83-2.83Z" transform="translate(-304.08 -649.18)"/>
                                     </svg>
-                                    <p>Creating a payment...</p>
+                                    {languageLayout(<p>Creating a payment...</p>,<p>...جاري الدفع</p>)}
+                                    
                                 </div>
 
                                 <div className={stylePurchase.loaders}>
@@ -346,17 +382,30 @@ export default function purchase() {
                                         width="1.2rem"
                                         visible={didAccountCreated === 1}
                                     />
-                                    <p>Creating a acount...</p>                                    
+                                    
+                                    {languageLayout(<p>Creating a acount...</p> ,<p>...يتم إنشاء الحساب</p>)}                                   
                                 </div>
                                     
                                 <div className={stylePurchase.secondInput} style={didPaymentSuccess === 2 && didAccountCreated === 3 ? {display:"block"}:{display:"none"}}>
-                                    <h4>Payment whent through, but failed to create a acount</h4>
-                                    <h4>Please DON'T refresh the page</h4>
-                                    <h4>Type in a correct email and a valid password</h4>
-                                    <input className={stylePurchase.emailSecondInput} onChange={e => handleChange(e)} type="text" name="email" placeholder="Email" value={email}/>
-                                    <input onChange={e => handleChange(e)} type="password" name="password" placeholder="Password" />
+                                    {languageLayout(<h4>Payment whent through, but failed to create an acount</h4> ,<p>عملية الدفع تمت بنجاح، ولكن فشلت عملية انشاء الحساب</p>)}
+                                    {languageLayout(<h4>Please DON'T refresh the page</h4> ,<p>من فضلك لاتقم بإعادة تحميل الصفحة</p>)}
+                                    {languageLayout(<h4>Type in a correct email and a valid password</h4> ,<p>من فضلك، قم بكتابة بريد الكتروني وكلمة مرور صالحين للاستخدام</p>)}
+            
+                                    <input className={stylePurchase.emailSecondInput} 
+                                        style={{textAlign:textAlign}}
+                                        onChange={e => handleChange(e)} 
+                                        type="text" 
+                                        name="email" 
+                                        placeholder={languageLayout("Email" ,"البريد الألكتروني")} 
+                                        value={email}/>
+
+                                    <input 
+                                        style={{textAlign:textAlign}}
+                                        onChange={e => handleChange(e)} 
+                                        type="password" name="password" 
+                                        placeholder={languageLayout("Password" ,"كلمة المرور")} />
                                     <button disabled={isSecondformLoading}>
-                                        Create Account
+                                        {languageLayout("Create Account" ,"انشاء حساب")}
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.3 17">
                                             <polygon points="10.3 8.5 1.8 0 0 1.8 6.7 8.5 0 15.2 1.8 17 10.3 8.5"/>
                                         </svg>
@@ -364,9 +413,10 @@ export default function purchase() {
                                     <h6 className={stylePurchase.formError}>{error}</h6>
                                 </div>
                                 <div  className={stylePurchase.paymentFailed} style={didPaymentSuccess === 3 ? {display:"block"}:{display:"none"}}>
-                                    <h4>Payment failed</h4>
+                                {languageLayout(<h4>Payment failed</h4> ,<h4>فشلت عملية الدفع</h4>)}
+                                    
                                     <h6>{error}</h6>
-                                    <button type="button" onClick={() => setIsLoading(false)}>Try again!</button>
+                                    <button type="button" onClick={() => setIsLoading(false)}>{languageLayout("Try again" ,"حاول مرة أخرى!")}</button>
                                 </div>
                             </div>
                         </form>

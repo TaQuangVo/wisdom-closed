@@ -1,9 +1,23 @@
 import styleAbout from "../styles/About.module.css";
 import {motion} from "framer-motion"
+import {useContext} from 'react'
+
+import {languageContext} from "../contexts/languageContext";
 
 
 
 export default function Policy() {
+
+    const  {isEng, changeLanguage} = useContext(languageContext);
+
+    const languageLayout = (Engver, ArbVer) => {
+        if(isEng){
+            return Engver;
+        }else{
+            return ArbVer;
+        }
+    }
+
     return (
         <motion.div 
         className={styleAbout.container}
@@ -11,7 +25,8 @@ export default function Policy() {
         initial={{opacity:0}} 
         animate={{opacity:1}}>
             <div className={styleAbout.content}>
-                <div className={styleAbout.body}>
+                {languageLayout(
+                    <div className={styleAbout.body}>
                     <h1>TERMS OF SERVICE</h1>
                     <h2>OVERVIEW</h2>
                     <p>This website is operated by WIZZDOM.NET. Throughout the site, the terms “we”, “us” and “our” refer to WIZZDOM.NET. WIZZDOM.NET offers this website, including all information, tools and services available from this site to you, the user, conditioned upon your acceptance of all terms, conditions, policies and notices stated here.</p>
@@ -32,7 +47,63 @@ export default function Policy() {
                     <p>In no event shall WIZZDOM.NET, nor any of its officers, directors and employees, shall be held liable for anything arising out of or in any way connected with your use of this Website whether such liability is under contract.  WIZZDOM.NET, including its officers, directors and employees shall not be held liable for any indirect, consequential or special liability arising out of or in any way related to your use of this Website.<br/>- You hereby fully indemnify WIZZDOM.NET from and against any and/or all liabilities, costs, demands, causes of action, damages and expenses arising in any way related to your breach of any of the provisions of these Terms.</p>
                     <h2>SECTION 6 - RESTRICTIONS</h2>
                     <p>You are specifically restricted from all the following:<br/>- Selling or sublicensing   any Website material;<br/>- Using this Website in any way that is or may be damaging to this Website;<br/>- Using this Website in any way that impacts user access to this Website;<br/>- Using this Website contrary to applicable laws and regulations, or in any way may cause harm to the Website, or to any person or business entity;<br/>- Engaging in any data mining, data harvesting, data extracting or any other similar activity in relation to this Website;<br/>- Using this Website to engage in any advertising or marketing.<br/>- Certain areas of this Website are restricted from being access by you and WIZZDOM.NET may further restrict access by you to any areas of this Website, at any time, in absolute discretion. Any user ID and password you may have for this Website are confidential and you must maintain confidentiality as well.</p>
-                </div>
+                </div>,
+
+
+
+
+                <div className={[styleAbout.body, "arabicText"].join(" ")} >
+                <h1>شروط الخدمة</h1>
+                <h2>نظرة عامة</h2>
+                <p>
+                يتم تشغيل هذا الموقع بواسطة WIZZDOM.NET.في جميع أنحاء الموقع، تشير المصطلحات "نحن" و "خاصتنا" إلى
+                WIZZDOM.NET. <br/> WIZZDOM.NET تتيح لك جميع المعلومات والأدوات والخدمات، كمستخدم في هذا الموقع ، بشرط موافقتك على جميع الشروط
+                والأحكام والسياسات والإشعارات المذكورة هنا.
+                </p>
+                <p>من خلال زيارة موقعنا و / أو شراء شيء منا، فإنك تشارك في &quot;الخدمة&quot; الخاصة بنا وتوافق على الالتزام بالشروط والأحكام التالية
+                (&quot;شروط الخدمة&quot;، &quot;الشروط&quot;) ، بما في ذلك تلك الشروط والأحكام والسياسات الإضافية المشار إليه هنا و / أو متاح من خلال ارتباط
+                تشعبي. تنطبق شروط الخدمة هذه على جميع مستخدمي الموقع، بما في ذلك على سبيل المثال لا الحصر المستخدمين من المتصفحات و
+                / أو البائعين و / أو العملاء و / أو التجار و / أو المساهمين في المحتوى.</p>
+                <p>يرجى قراءة شروط الخدمة هذه بعناية قبل الوصول إلى موقعنا الإلكتروني أو استخدامه. من خلال الوصول إلى أو استخدام أي جزء
+                من الموقع، فإنك توافق على الالتزام بشروط الخدمة هذه. إذا كنت لا توافق على جميع شروط وأحكام هذه الاتفاقية، فلا يجوز لك
+                الوصول إلى موقع الويب أو استخدام أي من خدماته. إذا كانت شروط الخدمة هذه بمثابة عرض، فإن القبول يقتصر صراحةً على
+                شروط الخدمة هذه.</p>
+                <p>تخضع أيضًا أي ميزات أو أدوات جديدة تضاف إلى المتجر الحالي لشروط الخدمة. يمكنك مراجعة أحدث إصدار من شروط الخدمة في
+                أي وقت على هذه الصفحة. نحتفظ بالحق في تحديث أو تغيير أو استبدال أي جزء من شروط الخدمة هذه عن طريق نشر التحديثات و /
+                أو التغييرات على موقعنا. تقع على عاتقك مسؤولية مراجعة هذه الصفحة بشكل دوري لمعرفة التغييرات. استمرار استخدامك أو   
+                الوصول إلى موقع الويب بعد نشر أي تغييرات يشكل قبولًا لهذه التغييرات.</p>
+                <h2>حقوق الملكية الفكرية</h2>
+                <p>بخلاف المحتوى الذي تمتلكه، بموجب هذه الشروط، تمتلك WIZZDOM.NET و/ أو المرخصون التابعون لها جميع حقوق الملكية
+                الفكرية والمواد الواردة في هذا الموقع.</p>
+                <h2>القسم 1 - شروط المتجر عبر الإنترنت</h2>
+                <p>بالموافقة على شروط الخدمة هذه، فإنك تقر بأنك على الأقل تبلغ سن الرشد في الولاية أو الإقليم الذي تعيش فيه، أو أنك تبلغ سن الرشد
+                في الولاية أو الإقليم الذي تعيش فيه وأنك منحتنا موافقتك على السماح لأي من المعالين القصر لاستخدام هذا الموقع.<br/>لا يجوز لك استخدام منتجاتنا لأي غرض غير قانوني أو غير مصرح به ولا يجوز لك، عند استخدام الخدمة، انتهاك أي قوانين في
+                ولايتك القضائية (بما في ذلك على سبيل المثال لا الحصر قوانين حقوق النشر).<br/>يجب ألا تنقل أي فيروسات أو أي رمز ذي طبيعة مدمرة.</p>
+                <h2>القسم 2 - الشروط العامة</h2>
+                <p>نحتفظ بالحق في رفض الخدمة لأي شخص لأي سبب وفي أي وقت.<br/>أنت تدرك أن المحتوى الخاص بك (لا يشمل معلومات بطاقة الائتمان)، قد يتم نقله بدون تشفير ويتضمن (أ) عمليات نقل عبر شبكات
+                مختلفة؛ و (ب) التغييرات للتوافق والتكيف مع المتطلبات الفنية لتوصيل الشبكات أو الأجهزة. يتم دائمًا تشفير معلومات بطاقة الائتمان
+                أثناء النقل عبر الشبكات.<br/>أنت توافق على عدم إعادة إنتاج أو تكرار أو نسخ أو بيع أو إعادة بيع أو استغلال أي جزء من الخدمة أو استخدام الخدمة أو الوصول إلى
+                الخدمة أو أي جهة اتصال على الموقع الإلكتروني يتم تقديم الخدمة من خلالها، دون إذن كتابي صريح من جانبنا.</p>
+                <h2>القسم 3 - دقة المعلومات واكتمالها وحداثتها</h2>
+                <p>نحن لسنا مسؤولين إذا كانت المعلومات المتوفرة على هذا الموقع غير دقيقة أو كاملة أو حديثة. يتم توفير المواد الموجودة على هذا
+                الموقع للحصول على معلومات عامة فقط ولا ينبغي الاعتماد عليها أو استخدامها كأساس وحيد لاتخاذ القرارات دون استشارة مصادر
+                المعلومات الأولية أو الأكثر دقة أو الأكثر اكتمالًا أو في الوقت المناسب. أي اعتماد على المواد الموجودة على هذا الموقع هو على
+                مسؤوليتك الخاصة.<br/>يتم توفير موقع الويب هذا &quot;كما هو&quot; مع جميع الأخطاء، ولا تعبر WIZZDOM.NET عن أي تعهدات أو ضمانات من أي نوع يتعلق
+                بهذا الموقع أو المواد الموجودة على هذا الموقع. أيضًا، لن يتم تفسير أي شيء وارد في هذا الموقع على أنه نصح لك.</p>
+                <h2>القسم 4 - تعديلات على الخدمة والأسعار</h2>
+                <p>أسعار منتجاتنا عرضة للتغيير دون إشعار.<br/>نحن نحتفظ بالحق في أي وقت في تعديل أو إيقاف الخدمة (أو أي جزء أو محتوى منها) دون إشعار في أي وقت.<br/>لن نكون مسؤولين تجاهك أو تجاه أي طرف ثالث عن أي تعديل أو تغيير في الأسعار أو تعليق أو وقف للخدمة.</p>
+                <h2>القسم 5 - تحديد المسؤولية والتعويض</h2>
+                <p>لن تتحمل WIZZDOM.NET بأي حال من الأحوال، ولا أي من مسؤوليها ومديريها وموظفيها، المسؤولية عن أي شيء ينشأ عن أو
+                يرتبط بأي شكل من الأشكال باستخدامك لهذا الموقع. لا تتحمل WIZZDOM.NET، بما في ذلك مسؤوليها ومديريها وموظفيها، أي
+                مسؤولية غير مباشرة أو تبعية أو خاصة تنشأ عن أو تتعلق بأي شكل من الأشكال باستخدامك لهذا الموقع.<br/>أنت بموجب هذا تعوض WIZZDOM.NET بالكامل من وضد أي و / أو جميع الالتزامات والتكاليف والمطالب وأسباب الدعوى
+                والأضرار والنفقات الناشئة بأي شكل من الأشكال فيما يتعلق بخرقك لأي من أحكام هذه الشروط.</p>
+                <h2>القسم 6 - القيود</h2>
+                <p>أنت مقيد على وجه التحديد من كل ما يلي:<br/>بيع أو ترخيص أي مادة من مواد الموقع؛<br/>استخدام هذا الموقع بأي طريقة تضر أو ​​قد تكون ضارة بهذا الموقع؛<br/>استخدام هذا الموقع بأي طريقة تؤثر على وصول المستخدم إلى هذا الموقع؛<br/>استخدام هذا الموقع بشكل مخالف للقوانين واللوائح المعمول بها، أو بأي شكل من الأشكال قد يتسبب في ضرر للموقع، أو لأي شخص
+                أو كيان تجاري؛<br/>الانخراط في أي تنقيب عن البيانات أو جمع البيانات أو استخراج البيانات أو أي نشاط مشابه آخر فيما يتعلق بهذا الموقع؛<br/>استخدام هذا الموقع للدخول في أي إعلان أو تسويق.<br/>يُحظر وصولك إلى مناطق معينة من هذا الموقع، وقد تقوم WIZZDOM.NET بتقييد وصولك إلى أي مناطق من هذا الموقع، في أي
+                وقت، وفقًا لتقديرها المطلق. يعتبر أي معرف مستخدم وكلمة مرور قد يكون لديك لهذا الموقع سريًا ويجب عليك الحفاظ على السرية
+                أيضًا.</p>
+            </div>
+                )}
             </div>
         </motion.div>
     )

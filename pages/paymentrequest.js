@@ -12,19 +12,31 @@ import "firebase/storage";
 
 //contexts
 import {userContext} from "../contexts/userContext"
+import {languageContext} from "../contexts/languageContext";
 
 
 export default function PaymentRequest() {
 
     //user context
     const {user} = useContext(userContext);
+    const  {isEng} = useContext(languageContext);
+
+    const textAlign = isEng ? "left":"right";
+
+    const languageLayout = (Engver, ArbVer) => {
+        if(isEng){
+            return Engver;
+        }else{
+            return ArbVer;
+        }
+    }
 
     const router = useRouter();
 
 
     useEffect(() => {
         if(user !== null){
-            if(user.totalCash < 200){
+            if(user.totalCash < 300){
                 router.replace("/user");
             }  
         }      
@@ -202,9 +214,10 @@ export default function PaymentRequest() {
                 {user !== null ? (
                     <div className={styleRequest.body}>
                     <div className={styleRequest.discriptions}>
-                        <h1>Request a pay out</h1>
-                        <h2>{user.totalCash}</h2>
-                        <p>Fill out all the fields</p>
+                        {languageLayout(<h1>Request a pay out</h1>,<h1>قم بطلب سحب المال</h1>)}
+                        <h2>{Math.round(user.totalCash * 1000)/ 1000}</h2>
+                        {languageLayout(<p>Fill out all the fields</p>,<p>قم بملئ المعلومات ادناه</p>)}
+                        
                     </div>
                     <span className={styleRequest.divider}></span>
                     <div className={styleRequest.forms}>
@@ -212,30 +225,31 @@ export default function PaymentRequest() {
                             handlingState !== 2  && (
                                 <form onSubmit={e => handleSubmit(e)} >
                                     <div>
-                                        <h3>Full name</h3>
-                                        <input onChange={e => handleChange(e)} type="text" name="name" autoComplete="off"/>
-                                        <h3>Address</h3>
-                                        <input onChange={e => handleChange(e)} type="text" name="address" autoComplete="none"/>
-                                        <h3>Email</h3>
-                                        <input onChange={e => handleChange(e)} type="text" name="email" autoComplete="none"/>
-                                        <h3>Phone nr</h3>
-                                        <input onChange={e => handleChange(e)} type="text" name="phone" autoComplete="none"/>
-                                        <h3>Name and full address of recipient's bank</h3>
-                                        <input onChange={e => handleChange(e)} type="text" name="bankAddress" autoComplete="none"/>
-                                        <h3>Account number and account type</h3>
-                                        <input onChange={e => handleChange(e)} type="text" name="bankNr" autoComplete="none"/>
-                                        <h3>IBAN</h3>
-                                        <input onChange={e => handleChange(e)} type="text" name="iban" autoComplete="none"/>
-                                        <h3>SWIFT or BIC code</h3>
-                                        <input onChange={e => handleChange(e)} type="text" name="swift" autoComplete="none"/>
-                                        <h3>Passport picture</h3>
-                                        <input ref={el => fileUploader = el} onChange={e => handleChange(e)} type="file" name="pass" autoComplete="none"/>
+                                        {languageLayout(<h3>Full name</h3>,<h3 className="arabicText">الأسم الكامل</h3>)}
+                                        <input style={{textAlign:textAlign}} onChange={e => handleChange(e)} type="text" name="name" autoComplete="off"/>
+                                        {languageLayout(<h3>Address</h3>,<h3 className="arabicText">العنوان</h3>)}
+                                        <input style={{textAlign:textAlign}} onChange={e => handleChange(e)} type="text" name="address" autoComplete="none"/>
+                                        {languageLayout(<h3>Email</h3>,<h3 className="arabicText">البريد الألكتروني</h3>)}
+                                        <input style={{textAlign:textAlign}} onChange={e => handleChange(e)} type="text" name="email" autoComplete="none"/>
+                                        {languageLayout(<h3>Phone nr</h3>,<h3 className="arabicText">رقم الهاتف</h3>)}
+                                        <input style={{textAlign:textAlign}} onChange={e => handleChange(e)} type="text" name="phone" autoComplete="none"/>
+                                        {languageLayout(<h3>Name and full address of recipient's bank</h3>,<h3 className="arabicText">اسم البنك والعنوان الكامل له</h3>)}
+                                        <input style={{textAlign:textAlign}} onChange={e => handleChange(e)} type="text" name="bankAddress" autoComplete="none"/>
+                                        {languageLayout(<h3>Account number and account type</h3>,<h3 className="arabicText">رقم الحساب ونوع الحساب</h3>)}
+                                        <input style={{textAlign:textAlign}} onChange={e => handleChange(e)} type="text" name="bankNr" autoComplete="none"/>
+                                        {languageLayout(<h3>IBAN</h3>,<h3 className="arabicText">رقم ال IBAN</h3>)}
+                                        <input style={{textAlign:textAlign}} onChange={e => handleChange(e)} type="text" name="iban" autoComplete="none"/>
+                                        {languageLayout(<h3>SWIFT or BIC code</h3>,<h3 className="arabicText">رمز ال Bic او Swift</h3>)}
+                                        <input style={{textAlign:textAlign}} onChange={e => handleChange(e)} type="text" name="swift" autoComplete="none"/>
+                                        {languageLayout(<h3>Passport picture</h3>,<h3 className="arabicText">صورة جواز السفر</h3>)}
+                                        <input style={{textAlign:textAlign}} ref={el => fileUploader = el} onChange={e => handleChange(e)} type="file" name="pass" autoComplete="none"/>
 
                                         
                                     
                                         <button type="submit" disabled ={handlingState === 2}>
-                                            {handlingState === 1 ? "Sending..." : "Make the request"}
-                                            
+
+                                            {handlingState === 1 ? languageLayout("Sending..","يتم الإرسال") : languageLayout("Make the request","قم بالطلب")}
+
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.3 17">
                                                 <polygon points="10.3 8.5 1.8 0 0 1.8 6.7 8.5 0 15.2 1.8 17 10.3 8.5"/>
                                             </svg>

@@ -1,12 +1,14 @@
 import '../styles/globals.css'
 import Layout from "../components/Layout"
-import UserContextProvider from "../contexts/userContext";
 import {useEffect} from "react";
+
 
 import firebase from "firebase/app"
 import {firebaseConfig} from "../util/firebaseConfig"
 
-
+//context
+import UserContextProvider from "../contexts/userContext";
+import LanguageContextProvider from "../contexts/languageContext";
 
 
 
@@ -21,11 +23,13 @@ function MyApp({ Component, pageProps }) {
   }, [])
 
   return ( 
-    <UserContextProvider>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </UserContextProvider>
+    <LanguageContextProvider>
+       <UserContextProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </UserContextProvider>
+    </LanguageContextProvider>
   )
 }
 

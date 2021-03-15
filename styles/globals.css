@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "diwani";
+  src: url("/fonts/Diwanltr.ttf");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -45,6 +50,19 @@ html {
 
 .displayNone {
   display: none !important;
+}
+
+#arabicLogo {
+  font-family: diwani;
+}
+.arabicText {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+.arabicText:after {
+  content: "a";
+  color: transparent;
 }
 
 /*nav effect*/

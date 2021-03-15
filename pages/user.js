@@ -4,14 +4,25 @@ import styleUser from "../styles/userStyle.module.css"
 import Link from "next/link"
 import { useRouter } from 'next/router'
 
+
 //contexts
 import {userContext} from "../contexts/userContext"
+import {languageContext} from "../contexts/languageContext";
 
 export default function user() {
 
     const router = useRouter();
 
     const {user} = useContext(userContext);
+    const  {isEng, changeLanguage} = useContext(languageContext);
+
+    const languageLayout = (Engver, ArbVer) => {
+        if(isEng){
+            return Engver;
+        }else{
+            return ArbVer;
+        }
+    }
 
     const handleRequest = () => {
         if(user.totalCash >= 300){
@@ -29,9 +40,9 @@ export default function user() {
             <div className={styleUser.content}>
                 {user !== null ? (
                 <div className={styleUser.body}>
-                    <h2>Hi, how are you {user.name}</h2>
+                    {languageLayout(<h2>Hi, how are you {user.name}</h2>,<h2>{user.name} مرحباً! كيف حالك يا </h2>)}
                     <h1>"{user.wisdom}"</h1>
-                    <h4>Your code is:</h4>
+                    {languageLayout(<h4>Your code is:</h4>,<h4>:الرمز الخاص بك هو</h4>)}
                     <h4>{user.myCode}</h4>
                     <div className={styleUser.points}>
                         {user.hasDrown && (
@@ -66,17 +77,19 @@ export default function user() {
                         </div>
                     </div>
                         <button onClick={handleRequest}>
-                            Request a withdraw
+                            {languageLayout("Request a withdraw","أسحب مالك")}
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.3 17">
                                 <polygon points="10.3 8.5 1.8 0 0 1.8 6.7 8.5 0 15.2 1.8 17 10.3 8.5"/>
                             </svg>
                         </button>
-                    <p>A minimum of 300$ is required to make a request</p>
+                        {languageLayout(<p>A minimum of 300$ is required to make a request</p>,<p>يجب أن تملك على الأقل 300$ لتقوم بعملية السحب</p>)}
+                    
                 </div>
                 ):(
                 <div className={styleUser.body}>
-                    <h1>Your are not logged in</h1>
-                    <h2>Please Login, <Link href="/signin"><span>here</span></Link></h2>
+                    {languageLayout(<h1>Your are not logged in</h1>,<p>لم تقم بتسجيل دخولك</p>)}
+                    {languageLayout(<h2>Please Login, <Link href="/signin"><span>here</span></Link></h2>,<h2>رجاءاً قم بتسجيل الدخول من <Link href="/signin"><span>هنا</span></Link></h2>)}
+                    
                     <Link href="/"><p className={styleUser.goHome}>Got to homepage</p></Link>
                 </div>
                 )}

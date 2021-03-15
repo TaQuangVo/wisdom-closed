@@ -1,18 +1,30 @@
-import {useEffect,useRef,useState} from 'react'
+import {useEffect,useRef,useState,useContext} from 'react'
 import styleTesla from "../styles/Tesla.module.css"
 import Link from "next/link"
+
+//context
+import {languageContext} from "../contexts/languageContext";
 
 export default function Testa() {
     let container = useRef(null);
     let closeBtn = useRef(null);
     const [open, setOpen] = useState(false)
 
+    const  {isEng, changeLanguage} = useContext(languageContext);
+    const languageLayout = (Engver, ArbVer) => {
+        if(isEng){
+            return Engver;
+        }else{
+            return ArbVer;
+        }
+    }
+
 
     useEffect(() => {
 
         let count = 0;
 
-        setTimeout(() => {
+        const timer = setTimeout(() => {
             setOpen(true);
         }, 4000);
 
@@ -21,17 +33,19 @@ export default function Testa() {
                 setOpen(true);
             }, 60000);
         }
-        
-        closeBtn.addEventListener("click", ()=> {
+
+        const handleClick = ()=> {
             setOpen(false);
             if(count < 1){
                 autoReOpen();
                 count++;
             }
-        })
+        }
+        
+        closeBtn.addEventListener("click", handleClick)
 
         return () => {
-            
+            clearTimeout(timer);
         }
     }, [])
     return (
@@ -51,8 +65,13 @@ export default function Testa() {
                 </svg>
             </div>
             <div className={styleTesla.content}>
-                <h2>It's really wise to not miss the chance to win a Tesla Model 3</h2>
-                <Link href="/learnmore"><button>Learn more</button></Link>
+                {
+                    languageLayout(<h2>It's really wise to not miss the chance to win a Tesla Model 3</h2>,<h2>‎أنه لمن الحكمة ان لا تضيع فرصة الفوز بسيارة تسلا موديل ٣</h2>)
+                }
+                
+                <Link href="/learnmore"><button>{
+                     languageLayout("Learn more","اعرف المزيد")
+                    }</button></Link>
             </div>
             <div ref={el => closeBtn = el} className={styleTesla.close}>
             <svg viewBox="0 0 42 42">
