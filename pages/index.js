@@ -3,8 +3,8 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import {motion} from "framer-motion"
 
-//component
-import HomeMain from "../components/HomeMain"
+
+
 
 export default function Home() {
 
@@ -18,7 +18,11 @@ export default function Home() {
         <title>Wisdom.nu</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HomeMain />
+      <div className={styles.header}>
+        <h1>Our site is temporarily closed</h1>
+        <p>Please come back later!</p>
+      </div>
+      
     </motion.div>
   )
 }
